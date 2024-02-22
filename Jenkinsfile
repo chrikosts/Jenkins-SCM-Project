@@ -1,6 +1,10 @@
 // This should be a comment...
 pipeline {
   agent any
+  triggers {
+    cron '''TZ=Europe/Athens
+  H */1 * * *'''
+  }
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '7', numToKeepStr: '14')
     disableConcurrentBuilds()
